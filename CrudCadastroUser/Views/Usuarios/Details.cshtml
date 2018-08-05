@@ -1,0 +1,39 @@
+﻿@model CrudCadastroUser.Models.Usuarios
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<br />
+
+<h2>Usuário - Detalhes</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+    </dl>
+</div>
+
+<br />
+
+<p>
+    @Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-primary" })
+
+    @Html.ActionLink("Editar", "Edit", new { id = Model.UserID }, new { @class = "btn btn-warning" })
+</p>

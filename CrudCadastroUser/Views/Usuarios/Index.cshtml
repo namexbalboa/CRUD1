@@ -1,0 +1,65 @@
+﻿@model IEnumerable<CrudCadastroUser.Models.Usuarios>
+
+@{
+    ViewBag.Title = "Cadastro de Usuários";
+}
+
+<br />
+
+<h2>Todos os Usuários</h2>
+
+<br />
+
+<p>
+    @Html.ActionLink("Novo Usuário", "Create", null, new { @class = "btn btn-primary" })
+</p>
+
+<br />
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            Ações
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+
+        
+
+
+        <td>
+            <div class="spanClass">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true">
+                    @Html.ActionLink("Editar", "Edit", new { id = item.UserID })
+                </span> |
+
+                <span class="glyphicon glyphicon-align-justify" aria-hidden="true">
+                    @Html.ActionLink("Detalhes", "Details", new { id = item.UserID })
+                </span> |
+
+                <span class="glyphicon glyphicon-trash" aria-hidden="true">
+                    @Html.ActionLink("Excluir", "Delete", new { id = item.UserID })
+                </span>
+            </div>
+
+        </td>
+    </tr>
+}
+
+</table>
